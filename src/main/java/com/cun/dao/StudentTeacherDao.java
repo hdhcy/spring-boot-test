@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.cun.entity.StudentTeacher;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 public interface StudentTeacherDao extends JpaRepository<StudentTeacher, Integer> {
 
 	/**
@@ -25,8 +27,9 @@ public interface StudentTeacherDao extends JpaRepository<StudentTeacher, Integer
 	 */
 	@Query(value = "select * from t_st where teacher_id=?1", nativeQuery = true)
 	List<StudentTeacher> getStudentTeacherByTeacherId(Integer id);
-	
-	
+
+
+
 	/**
 	 * 2.1、通过教师 id 删除师生关系
 	 * ① 在 dao 层中加上@Modifying
