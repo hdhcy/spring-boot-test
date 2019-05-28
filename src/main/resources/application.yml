@@ -1,5 +1,5 @@
 server:
-  port: 8989 #为了以后访问项目不用写端口号
+  port: 8369 #为了以后访问项目不用写端口号
 
 spring:
   datasource:

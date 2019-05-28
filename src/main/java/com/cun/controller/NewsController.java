@@ -25,7 +25,7 @@ public class NewsController {
     public News insertNews(News news){
 
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         news.setTime(dateFormat.format(date));
         newsDao.save(news);
         return news;
@@ -44,7 +44,7 @@ public class NewsController {
     @PutMapping("/update")
     public News updateNews(News news){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         news.setTime(dateFormat.format(date));
         newsDao.save(news);
         return news;

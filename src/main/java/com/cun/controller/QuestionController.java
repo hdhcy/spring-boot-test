@@ -24,7 +24,7 @@ public class QuestionController {
     @PostMapping("/insert")
     public Question insertQuestion(Question question){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         question.setTime(dateFormat.format(date));
         questionDao.save(question);
         return question;
@@ -43,7 +43,7 @@ public class QuestionController {
     @PutMapping("/update")
     public Question updateQuestion(Question question){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         question.setTime(dateFormat.format(date));
         questionDao.save(question);
         return question;

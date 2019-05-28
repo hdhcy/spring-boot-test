@@ -24,7 +24,7 @@ public class CommentController {
     @PostMapping("/insert")
     public Comment insertComment(Comment comment){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         comment.setTime(dateFormat.format(date));
         commentDao.save(comment);
         return comment;
@@ -43,7 +43,7 @@ public class CommentController {
     @PutMapping("/update")
     public Comment updateComment(Comment comment){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         comment.setTime(dateFormat.format(date));
         commentDao.save(comment);
         return comment;

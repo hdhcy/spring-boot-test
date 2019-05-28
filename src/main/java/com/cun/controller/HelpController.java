@@ -25,7 +25,7 @@ public class HelpController {
     @PostMapping("/insert")
     public Help insertHelp(Help help){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         help.setTime(dateFormat.format(date));
         helpDao.save(help);
         return help;
@@ -44,7 +44,7 @@ public class HelpController {
     @PutMapping("/update")
     public Help updateHelp(Help help){
         Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         help.setTime(dateFormat.format(date));
         helpDao.save(help);
         return help;
