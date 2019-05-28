@@ -63,7 +63,13 @@ public class CommentController {
 
     //查内容
     @GetMapping("/content/{comment_content}")
-    public List<Comment> selectQuestionByContent(@PathVariable("comment_content") String comment_content){
+    public List<Comment> selectCommentByContent(@PathVariable("comment_content") String comment_content){
         return commentDao.findByComment_contentLike(comment_content);
+    }
+
+    //通过user_id查找
+    @GetMapping("/question/{question_id}")
+    public List<Comment> selectCommentByQuestion_id(@PathVariable("question_id") String question_id) {
+        return commentDao.findByQuestion_id(question_id);
     }
 }

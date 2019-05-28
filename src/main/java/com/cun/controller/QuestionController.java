@@ -75,7 +75,7 @@ public class QuestionController {
 
     //通过user_id查找
     @GetMapping("/user/{user_id}")
-    public List<Question> selectQuestionByUser_ido(@PathVariable("user_id") String user_id) {
+    public List<Question> selectQuestionByUser_id(@PathVariable("user_id") String user_id) {
         return questionDao.findByUser_id(user_id);
     }
 }
