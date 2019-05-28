@@ -1,5 +1,7 @@
 package com.cun.entity;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -11,15 +13,34 @@ public class Question {
     @GeneratedValue
     private Integer id;
 
-    private Integer user_id;
+    @Column
+    private String user_id;
 
+    @Column
     private Integer comment_id;
 
+    @Column
     private String user_image_url;
 
+    @Column
     private String user_nick_name;
 
-    private Date time;
+    @Column
+    private String time;
+
+    @Column(length = 50)
+    private String question_title;
+
+    @Column(length = 200)
+    private String question_content;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getUser_image_url() {
         return user_image_url;
@@ -37,19 +58,13 @@ public class Question {
         this.user_nick_name = user_nick_name;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
-
-    @Column(length = 50)
-    private String question_title;
-
-    @Column(length = 200)
-    private String question_content;
 
     public Question() {
     }
@@ -60,14 +75,6 @@ public class Question {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
     }
 
     public Integer getComment_id() {

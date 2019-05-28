@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,6 +23,9 @@ public class CommentController {
     //增
     @PostMapping("/insert")
     public Comment insertComment(Comment comment){
+        Date date=new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        comment.setTime(dateFormat.format(date));
         commentDao.save(comment);
         return comment;
     }
@@ -37,6 +42,9 @@ public class CommentController {
     //改
     @PutMapping("/update")
     public Comment updateComment(Comment comment){
+        Date date=new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        comment.setTime(dateFormat.format(date));
         commentDao.save(comment);
         return comment;
     }
@@ -51,5 +59,11 @@ public class CommentController {
     @GetMapping("/all")
     public List<Comment> selectAllComment(){
         return commentDao.findAll();
+    }
+
+    //查内容
+    @GetMapping("/content/{comment_content}")
+    public List<Comment> selectQuestionByContent(@PathVariable("comment_content") String comment_content){
+        return commentDao.findByComment_contentLike(comment_content);
     }
 }

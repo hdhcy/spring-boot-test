@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,6 +23,9 @@ public class QuestionController {
     //增
     @PostMapping("/insert")
     public Question insertQuestion(Question question){
+        Date date=new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        question.setTime(dateFormat.format(date));
         questionDao.save(question);
         return question;
     }
@@ -37,6 +42,9 @@ public class QuestionController {
     //改
     @PutMapping("/update")
     public Question updateQuestion(Question question){
+        Date date=new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        question.setTime(dateFormat.format(date));
         questionDao.save(question);
         return question;
     }
@@ -67,7 +75,7 @@ public class QuestionController {
 
     //通过user_id查找
     @GetMapping("/user/{user_id}")
-    public List<Question> selectQuestionByUser_ido(@PathVariable("user_id") Integer user_id) {
+    public List<Question> selectQuestionByUser_ido(@PathVariable("user_id") String user_id) {
         return questionDao.findByUser_id(user_id);
     }
 }
