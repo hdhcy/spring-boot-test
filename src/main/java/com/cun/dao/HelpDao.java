@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface HelpDao extends JpaRepository<Help,Integer> {
 
-    @Query(value = "select * from help where user_id = CONCAT(:user_id)",nativeQuery = true)
+    @Query(value = "select * from help where user_id = CONCAT(:user_id) order by time desc",nativeQuery = true)
     List<Help> findByUser_id(@Param("user_id") String user_id);
 
     @Query(value = "select * from help where question_content like CONCAT('%',:question_content,'%') order by time desc",nativeQuery = true)

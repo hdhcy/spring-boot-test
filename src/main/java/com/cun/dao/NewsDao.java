@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface NewsDao extends JpaRepository<News,Integer> {
 
-    @Query(value = "select * from news where user_id = CONCAT(:user_id)",nativeQuery = true)
+    @Query(value = "select * from news where user_id = CONCAT(:user_id) order by time desc",nativeQuery = true)
     List<News> findByUser_id(@Param("user_id") String user_id);
 
     @Query(value = "select * from news where news_title like CONCAT('%',:news_title,'%') order by time desc",nativeQuery = true)
