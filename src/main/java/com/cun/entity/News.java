@@ -1,11 +1,7 @@
 package com.cun.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Table(name = "news")
@@ -36,6 +32,10 @@ public class News {
 
     @Column
     private String time;
+
+    @Column
+    private Integer page_number;
+
 
     public News() {
     }
@@ -102,5 +102,13 @@ public class News {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Integer getPage_number() {
+        return page_number;
+    }
+
+    public void setPage_number(Integer page_number) {
+        this.page_number = page_number;
     }
 }

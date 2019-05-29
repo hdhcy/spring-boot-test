@@ -20,4 +20,7 @@ public interface NewsDao extends JpaRepository<News,Integer> {
 
     @Query(value = "select * from news order by time desc",nativeQuery = true)
     List<News> findAll();
+
+    @Query(value = "select * from news where page_number = CONCAT(:page_number) order by time desc",nativeQuery = true)
+    List<News> findByPage_number(@Param("page_number") Integer page_number);
 }

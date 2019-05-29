@@ -79,4 +79,10 @@ public class NewsController {
     public List<News> selectNewsByUser_ido(@PathVariable("user_id") String user_id) {
         return newsDao.findByUser_id(user_id);
     }
+
+    //通过page_number查找
+    @GetMapping("/page/{page_number}")
+    public List<News> selectNewsByPage_number(@PathVariable("page_number") Integer page_number){
+        return newsDao.findByPage_number(page_number);
+    }
 }
